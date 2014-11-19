@@ -1,6 +1,6 @@
 # killchrome
 
-This app will kill running chrome processes by the local URL `http://127.0.0.1/chrome` being requested.
+This app will kill running chrome processes by the local URL `http://127.0.0.1:6732/chrome` being requested.
 
 Tested in Ubuntu 14:04 & Windows 8.1
 
