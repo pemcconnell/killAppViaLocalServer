@@ -5,6 +5,7 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"syscall"
 )
 
 func main() {
@@ -30,7 +31,7 @@ func killChrome() {
 			if findErr != nil {
 				log.Fatalln(findErr)
 			}
-			killErr := pc.Kill()
+			killErr := pc.Signal(syscall.SIGTERM)
 			if killErr != nil {
 				log.Fatalln(killErr)
 			}
