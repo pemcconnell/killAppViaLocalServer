@@ -31,7 +31,7 @@ func killChrome() {
 			if findErr != nil {
 				log.Fatalln(findErr)
 			}
-			killErr := pc.Signal(syscall.SIGTERM)
+			killErr := pc.Signal(syscall.SIGKILL)
 			if killErr != nil {
 				log.Fatalln(killErr)
 			}
