@@ -1,11 +1,9 @@
 package main
 
 import (
-	"github.com/mitchellh/go-ps"
 	"log"
 	"net/http"
-	"os"
-	"syscall"
+	"os/exec"
 )
 
 func main() {
@@ -24,18 +22,9 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func killChrome() {
 	log.Println("killing chrome processes")
-	prcs, _ := ps.Processes()
-	for _, p := range prcs {
-		if p.Executable() == PS_NAME {
-			pc, findErr := os.FindProcess(p.Pid())
-			if findErr != nil {
-				log.Fatalln(findErr)
-			}
-			killErr := pc.Signal(syscall.SIGKILL)
-			if killErr != nil {
-				log.Fatalln(killErr)
-			}
-		}
+	_, cmdErr := exec.Command("taskkill", "/IM", "chrome.exe").Output()
+	if cmdErr != nil {
+		log.Fatalln(cmdErr)
 	}
 	log.Println("killed chrome processes")
 }
