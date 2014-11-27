@@ -22,7 +22,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 
 func killChrome() {
 	log.Println("killing chrome processes")
-	_, cmdErr := exec.Command("taskkill", "/IM", "chrome.exe").Output()
+	_, cmdErr := exec.Command("taskkill", "/im", "chrome.exe", "/f", "/t").Output()
 	if cmdErr != nil {
 		log.Fatalln(cmdErr)
 	}
