@@ -3,7 +3,6 @@ package main
 import (
 	"log"
 	"net/http"
-	"os/exec"
 )
 
 func main() {
@@ -16,15 +15,10 @@ func main() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	killChrome()
+	KillChrome()
 	w.Write([]byte("OK"))
 }
 
-func killChrome() {
-	log.Println("killing chrome processes")
-	_, cmdErr := exec.Command("taskkill", "/im", "chrome.exe", "/f", "/t").Output()
-	if cmdErr != nil {
-		log.Fatalln(cmdErr)
-	}
-	log.Println("killed chrome processes")
+func KillChrome() {
+	killChrome()
 }
