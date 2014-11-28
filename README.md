@@ -31,7 +31,7 @@ GOOS=windows GOARCH=386 go build -o ../bin/killapp-32.exe
 
 ```
 cd killapp/
-GOOS=windows GOARCH=386 go build -o ../bin/killapp-64.exe
+GOOS=windows GOARCH=amd64 go build -o ../bin/killapp-64.exe
 ```
 
 ##Expected application Output
