@@ -34,6 +34,14 @@ cd killapp/
 GOOS=windows GOARCH=amd64 go build -o ../bin/killapp-64.exe
 ```
 
+####Makefile
+
+Or, just run the following to build all artifacts
+
+```
+make build
+```
+
 ##Expected application Output
 
 ```
