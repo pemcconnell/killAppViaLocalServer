@@ -15,6 +15,7 @@ func main() {
 // the address is defined by LISTEN_URL
 func runServer() {
 	http.HandleFunc("/kill", handlerKill)
+	http.HandleFunc("/chrome", handlerKill)
 	log.Println("Listening on " + LISTEN_URL)
 	err := http.ListenAndServe(LISTEN_URL, nil)
 	if err != nil {
